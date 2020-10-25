@@ -15,11 +15,12 @@ export const App: React.FC = () => {
         key: KEY
       }
     })
+    console.log(response)
   }
 
   return (
     <div className="ui container">
-      <SearchBar />
+      <SearchBar onFormSubmit={onTermSubmit} />
     </div>
   )
 }

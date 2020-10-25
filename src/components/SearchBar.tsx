@@ -1,6 +1,10 @@
 import React, { useState } from 'react'
 
-export const SearchBar: React.FC = () => {
+interface SearchBarProps {
+  onFormSubmit: (term: string) => void
+}
+
+export const SearchBar: React.FC<SearchBarProps> = props => {
   const [term, setTerm] = useState<string>('')
 
   const onInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -10,7 +14,7 @@ export const SearchBar: React.FC = () => {
   const onFormSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
 
-
+    props.onFormSubmit(term)
   }
 
   return (
