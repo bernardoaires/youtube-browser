@@ -4,14 +4,14 @@ import { SearchBar } from './SearchBar'
 import { VideoList } from './VideoList'
 import { VideoDetail } from './VideoDetail'
 
-const KEY = 'AIzaSyBWQvd_fSm6xBhvgNHanjsSaOvXH51T16E'
+const KEY = 'AIzaSyDUeAKTeaLojTavQo05xGV_lZuSNa-rktY'
 
 export const App: React.FC = () => {
   const [videos, setVideos] = useState<Object[]>([])
   const [selectedVideo, setSelectedVideo] = useState(null)
 
   const onTermSubmit = async (term: string) => {
-    const response = await youtube.get('/search', {
+    const { data } = await youtube.get('/search', {
       params: {
         q: term,
         part: "snippet",
@@ -20,9 +20,9 @@ export const App: React.FC = () => {
         key: KEY
       }
     })
-    console.log(response.data.items)
-    setVideos(response.data.items)
-    setSelectedVideo(response.data.items[0])
+    console.log(data.items)
+    setVideos(data.items)
+    setSelectedVideo(data.items[0])
   }
 
   const onVideoSelect = (video: any) => {
