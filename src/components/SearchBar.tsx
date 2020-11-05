@@ -21,7 +21,7 @@ export const SearchBar: React.FC<SearchBarProps> = props => {
     <div className="ui segment search-bar">
       <form onSubmit={onFormSubmit} className="ui form">
         <div className="field">
-          <label>Search Video</label>
+          <label>Youtube Search</label>
           <input type="text" value={term} onChange={onInputChange} />
         </div>
       </form>
